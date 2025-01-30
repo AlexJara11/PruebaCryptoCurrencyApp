@@ -3,6 +3,6 @@ export interface Criptomonedum {
   codigo: string,
   nombre: string,
   symbol: string,
-  descripcionCriptomonedum: string,
+  descripcion: string,
   esActivo: number
 }

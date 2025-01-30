@@ -20,7 +20,7 @@ export class CriptomonedumService {
   editar(request: Criptomonedum): Observable<ResponseApi> {
     return this.http.put<ResponseApi>(`${this.urlApi}Editar`, request)
   }
-  eliminar(id: number): Observable<ResponseApi> {
-    return this.http.delete<ResponseApi>(`${this.urlApi}Eliminar/${id}`)
+  eliminar(codigo: string): Observable<ResponseApi> {
+    return this.http.delete<ResponseApi>(`${this.urlApi}Eliminar/${codigo}`);
   }
 }

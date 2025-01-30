@@ -49,24 +49,26 @@ export class CriptomonedumComponent implements OnInit, AfterViewInit {
   }
   nuevaCriptomoneda() {
     this.dialog.open(ModalCriptomonedumComponent, {
-      disableClose: true
+      disableClose: true,
+      data: { criptomonedum: null, lista: this.dataListaCriptomonedum.data }
     }).afterClosed().subscribe(resultado => {
       if (resultado === "true") {
         this.obtenerCriptomonedas();
       }
     });
   }
-  editarProducto(criptomonedum: Criptomonedum) {
+
+  editarCriptomoneda(criptomonedum: Criptomonedum) {
     this.dialog.open(ModalCriptomonedumComponent, {
       disableClose: true,
-      data: criptomonedum
+      data: { criptomonedum, lista: this.dataListaCriptomonedum.data }
     }).afterClosed().subscribe(resultado => {
       if (resultado === "true") {
         this.obtenerCriptomonedas();
       }
     });
   }
-  eliminarProducto(criptomonedum: Criptomonedum) {
+  eliminarCriptomoneda(criptomonedum: Criptomonedum) {
     Swal.fire({
       title: '¿Desea eliminar la criptomoneda de la base de datos?',
       text: criptomonedum.nombre,
@@ -78,13 +80,13 @@ export class CriptomonedumComponent implements OnInit, AfterViewInit {
       cancelButtonText: 'No, volver'
     }).then((resultado) => {
       if (resultado.isConfirmed) {
-        this._criptomonedumService.eliminar(criptomonedum.idCriptomonedum).subscribe({
+        this._criptomonedumService.eliminar(criptomonedum.codigo).subscribe({
           next: (data) => {
             if (data.status) {
               this._utilidadService.mostrarAlerta("La criptomoneda fue eliminada de la base de datos", "Listo!");
               this.obtenerCriptomonedas();
             } else
-              this._utilidadService.mostrarAlerta("No se pudo eliminar la criptomoneda", "Error");
+              this._utilidadService.mostrarAlerta("No se pudo eliminar la criptomoneda o no se encuentra registrada en base de datos", "Error");
           },
           error: (e) => { }
         })
