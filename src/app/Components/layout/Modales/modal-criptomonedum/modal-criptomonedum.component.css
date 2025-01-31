@@ -3,5 +3,8 @@ mat-form-field{
   margin: 10px 10 px;
 }
 form{
-  width: 350px;
+  width: 700px;
+}
+.descripcion-field textarea {
+  height: 75px;
 }

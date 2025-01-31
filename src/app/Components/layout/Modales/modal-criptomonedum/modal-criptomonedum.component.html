@@ -1,42 +1,42 @@
-<h2 mat-dialog-title>{{tituloAccion}} Mantenimiento/Criptomoneda</h2>
+<h2 mat-dialog-title>Mantenimiento/Criptomoneda</h2>
+<h2 mat-dialog-title>{{tituloAccion}}</h2>
 
 <mat-dialog-content>
   <form [formGroup]="formularioCriptomonedum">
-    <mat-grid-list cols="1" rowHeight="80px">
-
-      <mat-grid-tile>
+    <mat-grid-list cols="2" rowHeight="135px">
+      <mat-grid-tile colspan="1">
         <mat-form-field appearance="outline">
           <mat-label>Nombre</mat-label>
           <input matInput autocomplete="off" formControlName="nombre">
-          <mat-icon matSuffix>fit_screen</mat-icon>
+          <mat-icon matSuffix>badge</mat-icon>
         </mat-form-field>
       </mat-grid-tile>
 
-      <mat-grid-tile>
+      <mat-grid-tile colspan="1">
         <mat-form-field appearance="outline">
           <mat-label>Código</mat-label>
           <input matInput autocomplete="off" formControlName="codigo">
-          <mat-icon matSuffix>edit_square</mat-icon>
+          <mat-icon matSuffix>qr_code</mat-icon>
         </mat-form-field>
       </mat-grid-tile>
 
-      <mat-grid-tile>
+      <mat-grid-tile colspan="2">
         <mat-form-field appearance="outline">
           <mat-label>Symbol</mat-label>
           <input matInput autocomplete="off" formControlName="symbol">
-          <mat-icon matSuffix>edit_square</mat-icon>
+          <mat-icon matSuffix>currency_bitcoin</mat-icon>
         </mat-form-field>
       </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
+      <mat-grid-tile colspan="2">
+        <mat-form-field appearance="outline" class="descripcion-field">
           <mat-label>Descripción</mat-label>
-          <input matInput autocomplete="off" formControlName="descripcion">
-          <mat-icon matSuffix>attach_money</mat-icon>
+          <textarea matInput autocomplete="off" formControlName="descripcion"></textarea>
+          <mat-icon matSuffix>description</mat-icon>
         </mat-form-field>
       </mat-grid-tile>
 
-      <mat-grid-tile>
+      <mat-grid-tile colspan="2">
         <mat-form-field appearance="outline">
           <mat-label>Estado</mat-label>
           <mat-select formControlName="esActivo">
@@ -45,7 +45,6 @@
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
-
     </mat-grid-list>
   </form>
 </mat-dialog-content>
@@ -56,5 +55,4 @@
   [disabled]="formularioCriptomonedum.invalid"
   (click)="guardarEditar_Criptomonedum()"
   >{{botonAccion}}</button>
-
 </mat-dialog-actions>

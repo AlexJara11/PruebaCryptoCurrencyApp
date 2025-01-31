@@ -17,7 +17,7 @@ import Swal from 'sweetalert2';
   styleUrl: './criptomonedum.component.css'
 })
 export class CriptomonedumComponent implements OnInit, AfterViewInit {
-  columnasTabla: string[] = ['codigo', 'nombre', 'descripcion', 'estado', 'acciones'];
+  columnasTabla: string[] = ['acciones', 'codigo', 'nombre', 'descripcion', 'estado' ];
   dataInicio: Criptomonedum[] = [];
   dataListaCriptomonedum = new MatTableDataSource(this.dataInicio);
   @ViewChild(MatPaginator) paginacionTabla!: MatPaginator;
